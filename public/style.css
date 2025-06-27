@@ -1,0 +1,526 @@
+/* Reset e configurações globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+/* Header */
+h1 {
+  text-align: center;
+  color: white;
+  margin: 30px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: -0.5px;
+}
+
+/* Container principal */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Cards dos formulários */
+.form-container, .list-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-container:hover, .list-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Títulos dos cards */
+.form-container h2, .list-container h2 {
+  color: #2d3748;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+}
+
+.form-container h2::after, .list-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+/* Layout das linhas do formulário */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.form-row .form-group {
+  margin-bottom: 0;
+}
+
+/* Grupos de formulário */
+.form-group {
+  margin-bottom: 25px;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #4a5568;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Inputs e selects */
+input[type="text"],
+input[type="datetime-local"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 15px 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background: #f7fafc;
+  color: #2d3748;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+  animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Botões */
+button {
+  padding: 15px 25px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Seção de disponibilidade */
+.disponibilidade-section {
+  margin-top: 40px;
+  padding-top: 35px;
+  border-top: 2px solid #e2e8f0;
+  position: relative;
+}
+
+.disponibilidade-section::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 1px;
+}
+
+.disponibilidade-section h3 {
+  margin-bottom: 25px;
+  color: #2d3748;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  position: relative;
+}
+
+.disponibilidade-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 1px;
+}
+
+/* Container de busca */
+.search-container {
+  margin-bottom: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 15px;
+  align-items: end;
+  background: #f7fafc;
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid #e2e8f0;
+}
+
+.search-container input,
+.search-container select {
+  margin: 0;
+}
+
+/* Lista de reservas */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  border-left: 4px solid #667eea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+}
+
+/* Informações da reserva */
+.reserva-info {
+  flex-grow: 1;
+}
+
+.reserva-info strong {
+  color: #2d3748;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.reserva-info small {
+  color: #718096;
+  display: block;
+  margin-top: 3px;
+  font-size: 0.85rem;
+}
+
+/* Status badges */
+.status {
+  padding: 6px 15px;
+  border-radius: 25px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-left: 15px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.status-reservado {
+  background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+  color: white;
+}
+
+.status-ocupado {
+  background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+  color: white;
+}
+
+.status-disponivel {
+  background: linear-gradient(135deg, #68d391 0%, #48bb78 100%);
+  color: white;
+}
+
+/* Botões de ação */
+.reserva-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, #f6ad55 0%, #ed8936 100%);
+  padding: 10px 15px;
+  font-size: 12px;
+  box-shadow: 0 2px 8px rgba(246, 173, 85, 0.3);
+}
+
+.edit-btn:hover {
+  background: linear-gradient(135deg, #ed8936 0%, #dd6b20 100%);
+  box-shadow: 0 4px 15px rgba(246, 173, 85, 0.4);
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+  padding: 10px 15px;
+  font-size: 12px;
+  box-shadow: 0 2px 8px rgba(252, 129, 129, 0.3);
+}
+
+.delete-btn:hover {
+  background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+  box-shadow: 0 4px 15px rgba(252, 129, 129, 0.4);
+}
+
+/* Resultado da disponibilidade */
+.disponibilidade-info {
+  padding: 25px;
+  border-radius: 15px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid;
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.disponibilidade-info.disponivel {
+  background: linear-gradient(135deg, #c6f6d5 0%, #9ae6b4 100%);
+  border-color: #48bb78;
+  color: #22543d;
+}
+
+.disponibilidade-info.indisponivel {
+  background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+  border-color: #f56565;
+  color: #742a2a;
+}
+
+.disponibilidade-info h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.disponibilidade-info p {
+  margin: 8px 0;
+  font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .search-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .reserva-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin: 20px 0;
+  }
+  
+  .form-container, .list-container {
+    padding: 25px;
+  }
+}
+
+/* Animações adicionais */
+.form-container, .list-container {
+  animation: slideInUp 0.6s ease;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+/* Ícones */
+.fas {
+  margin-right: 8px;
+  opacity: 0.8;
+}
+
+h1 .fas {
+  margin-right: 15px;
+  font-size: 2.2rem;
+  opacity: 0.9;
+}
+
+h2 .fas, h3 .fas {
+  margin-right: 10px;
+  opacity: 0.8;
+}
+
+label .fas {
+  margin-right: 6px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+button .fas {
+  margin-right: 6px;
+}
+
+.reserva-info .fas {
+  margin-right: 4px;
+  opacity: 0.6;
+  font-size: 0.8rem;
+}
+
+/* Loading e animações */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Efeitos de hover nos cards */
+.form-container::before, .list-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.form-container:hover::before, .list-container:hover::before {
+  left: 100%;
+}
+
+/* Melhorias nos inputs */
+input[type="text"]:focus,
+input[type="datetime-local"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+

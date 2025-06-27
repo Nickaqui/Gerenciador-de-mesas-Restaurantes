@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Reservas de Mesa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1><i class="fas fa-utensils"></i> Sistema de Reservas de Mesa</h1>
+
+  <div class="container">
+    <div class="form-container">
+      <h2><i class="fas fa-plus-circle"></i> Nova Reserva</h2>
+      <form id="reserva-form">
+        <input type="hidden" id="reserva-id">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nomeCliente"><i class="fas fa-user"></i> Nome do Cliente:</label>
+            <input type="text" id="nomeCliente" required>
+          </div>
+          <div class="form-group">
+            <label for="numeroMesa"><i class="fas fa-chair"></i> Número da Mesa:</label>
+            <input type="number" id="numeroMesa" min="1" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dataHoraReserva"><i class="fas fa-calendar-alt"></i> Data e Hora da Reserva:</label>
+            <input type="datetime-local" id="dataHoraReserva" required>
+          </div>
+          <div class="form-group">
+            <label for="contatoCliente"><i class="fas fa-phone"></i> Contato do Cliente:</label>
+            <input type="text" id="contatoCliente" placeholder="Telefone ou email" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="status"><i class="fas fa-info-circle"></i> Status:</label>
+            <select id="status" required>
+              <option value="reservado">Reservado</option>
+              <option value="ocupado">Ocupado</option>
+              <option value="disponivel">Disponível</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>&nbsp;</label>
+            <button type="submit"><i class="fas fa-save"></i> Salvar Reserva</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="disponibilidade-section">
+        <h3><i class="fas fa-search"></i> Verificar Disponibilidade</h3>
+        <form id="disponibilidade-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="check-dataHora"><i class="fas fa-clock"></i> Data e Hora:</label>
+              <input type="datetime-local" id="check-dataHora" required>
+            </div>
+            <div class="form-group">
+              <label for="check-mesa"><i class="fas fa-chair"></i> Número da Mesa:</label>
+              <input type="number" id="check-mesa" min="1" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>&nbsp;</label>
+              <button type="submit"><i class="fas fa-search"></i> Verificar</button>
+            </div>
+          </div>
+        </form>
+        <div id="disponibilidade-result"></div>
+      </div>
+    </div>
+
+    <div class="list-container">
+      <h2><i class="fas fa-list"></i> Reservas</h2>
+      <div class="search-container">
+        <input type="text" id="search-nome" placeholder="Pesquisar por cliente...">
+        <input type="number" id="search-mesa" placeholder="Número da mesa">
+        <select id="search-status">
+          <option value="">Todos os status</option>
+          <option value="reservado">Reservado</option>
+          <option value="ocupado">Ocupado</option>
+          <option value="disponivel">Disponível</option>
+        </select>
+        <button id="search-button"><i class="fas fa-search"></i> Pesquisar</button>
+      </div>
+      <ul id="reservas-list"></ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
